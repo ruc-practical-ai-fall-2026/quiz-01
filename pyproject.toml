@@ -31,3 +31,10 @@ select = ["E4", "E7", "E9", "F", "I", "UP"]
 # Student templates intentionally contain references filled in during the quiz.
 "assignment/problem_01.py" = ["F401", "F821"]
 "assignment/problem_02.py" = ["F401", "F821", "F841"]
+
+[tool.pytest.ini_options]
+# Filter warnings to ignore deprecation warnings from TorchVision and Torch JIT
+filterwarnings = [
+    "ignore:The image decoding and encoding capabilities of TorchVision are deprecated:DeprecationWarning",
+    "ignore:.*torch\\.jit\\.load.*is deprecated:FutureWarning",
+]
